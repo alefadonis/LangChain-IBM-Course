@@ -20,7 +20,7 @@ loader = TextLoader('state_of_the_union.txt')
 data = loader.load()
 
 # Create the index instance that makes it searchable
-index = VectorstoreIndexCreator().from_loaders([loader])
+index = VectorstoreIndexCreator(embedding=OpenAIEmbeddings()).from_loaders([loader])
 
 # Running into Gradio
 def summarize(ind, query):
